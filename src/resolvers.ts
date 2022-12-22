@@ -48,7 +48,6 @@ const resolvers: Resolvers = {
         participants: [currentUser] || null,
       } as Session;
 
-      console.log({SESSION_UPDATED, session});
       pubsub.publish(SESSION_UPDATED, {
         sessionUpdated: session,
       });
@@ -71,7 +70,6 @@ const resolvers: Resolvers = {
       ) as Session[];
 
       userSessions.forEach(session => {
-        console.log({VOTE_UPDATED, session});
         pubsub.publish(VOTE_UPDATED, {
           sessionUpdated: session,
         });
@@ -97,7 +95,6 @@ const resolvers: Resolvers = {
       }
 
       session.participants?.push(currentUser);
-      console.log({USER_ADDED_TO_SESSION, session});
 
       pubsub.publish(USER_ADDED_TO_SESSION, {
         sessionUpdated: session,
