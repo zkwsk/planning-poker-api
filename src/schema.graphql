@@ -1,0 +1,33 @@
+type Query {
+  user(id: String!): User
+  session(id: String!): Session
+}
+
+type Mutation {
+  createUser(username: String!): User
+  createSession(hostUserId: String!): Session
+  updateVote(userId: String!, vote: Int): User
+  addUserToSession(userId: String!, sessionId: String!): Session
+}
+
+type Subscription {
+  hello: String
+  sessionUpdated(id: String!): Session
+}
+
+type User {
+  id: String!
+  name: String
+  vote: Int
+}
+
+type Session {
+  id: String!
+  hostUserId: String!
+  participants: [User]
+}
+
+type Store {
+  users: [User]
+  sessions: [Session]
+}
