@@ -37,7 +37,7 @@
     "compile": "tsc",
     "dev": "npx nodemon",
     "fix": "gts fix",
-    "prepare": "yarn run compile && yarn run generate",
+    "prepare": "yarn run generate && yarn run compile",
     "pretest": "yarn run compile",
     "posttest": "yarn run lint",
     "generate": "graphql-codegen",
